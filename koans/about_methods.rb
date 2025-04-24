@@ -72,12 +72,12 @@ class AboutMethods < Neo::Koan
 
   def method_with_explicit_return
     :a_non_return_value
-    return :return_value
-    :another_non_return_value
+    return :return_value  # Явный возврат значения
+    :another_non_return_value  # Этот код никогда не выполнится
   end
 
   def test_method_with_explicit_return
-    assert_equal __, method_with_explicit_return
+    assert_equal :return_value, method_with_explicit_return  # Возвращается значение после return
   end
 
   # ------------------------------------------------------------------
