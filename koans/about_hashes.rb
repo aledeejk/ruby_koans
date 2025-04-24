@@ -67,10 +67,10 @@ class AboutHashes < Neo::Koan
 
   def test_hash_values
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash.values.size
-    assert_equal __, hash.values.include?("uno")
-    assert_equal __, hash.values.include?("dos")
-    assert_equal __, hash.values.class
+    assert_equal 2, hash.values.size        # Количество значений
+    assert_equal true, hash.values.include?("uno")  # Проверка наличия значения
+    assert_equal true, hash.values.include?("dos")
+    assert_equal Array, hash.values.class   # values возвращает массив
   end
 
   def test_combining_hashes
