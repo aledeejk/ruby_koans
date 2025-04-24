@@ -141,13 +141,13 @@ class AboutMethods < Neo::Koan
 
   def test_calling_methods_in_other_objects_require_explicit_receiver
     rover = Dog.new
-    assert_equal __, rover.name
+    assert_equal "Fido", rover.name  # Публичные методы можно вызывать
   end
 
   def test_calling_private_methods_in_other_objects
     rover = Dog.new
-    assert_raise(___) do
-      rover.tail
+    assert_raise(NoMethodError) do
+      rover.tail  # Приватные методы недоступны извне
     end
   end
 end
