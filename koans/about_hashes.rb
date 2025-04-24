@@ -98,16 +98,16 @@ class AboutHashes < Neo::Koan
   end
 
   def test_default_value_is_the_same_object
-    hash = Hash.new([])
+    hash = Hash.new([])  # Все значения по умолчанию - один и тот же массив
 
-    hash[:one] << "uno"
+    hash[:one] << "uno"  # Изменяется общий массив
     hash[:two] << "dos"
 
-    assert_equal __, hash[:one]
-    assert_equal __, hash[:two]
-    assert_equal __, hash[:three]
+    assert_equal ["uno", "dos"], hash[:one]  # Все ключи возвращают один массив
+    assert_equal ["uno", "dos"], hash[:two]
+    assert_equal ["uno", "dos"], hash[:three]
 
-    assert_equal __, hash[:one].object_id == hash[:two].object_id
+    assert_equal true, hash[:one].object_id == hash[:two].object_id  # Это один объект
   end
 
   def test_default_value_with_block
