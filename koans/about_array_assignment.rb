@@ -44,8 +44,8 @@ class AboutArrayAssignment < Neo::Koan
   def test_swapping_with_parallel_assignment
     first_name = "Roy"
     last_name = "Rob"
-    first_name, last_name = last_name, first_name
-    assert_equal __, first_name
-    assert_equal __, last_name
+    first_name, last_name = last_name, first_name # Обмен значений без временной переменной
+    assert_equal "Rob", first_name
+    assert_equal "Roy", last_name
   end
 end
