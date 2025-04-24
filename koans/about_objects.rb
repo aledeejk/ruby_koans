@@ -11,8 +11,8 @@ class AboutObjects < Neo::Koan
 
 
   def test_objects_can_be_converted_to_strings
-    assert_equal __, 123.to_s
-    assert_equal __, nil.to_s
+    assert_equal "123", 123.to_s    # Число в строку
+    assert_equal "", nil.to_s       # nil в пустую строку
   end
 
   def test_objects_can_be_inspected
