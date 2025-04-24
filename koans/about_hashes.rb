@@ -87,14 +87,14 @@ class AboutHashes < Neo::Koan
     hash1 = Hash.new
     hash1[:one] = 1
 
-    assert_equal __, hash1[:one]
-    assert_equal __, hash1[:two]
+    assert_equal 1, hash1[:one]
+    assert_equal nil, hash1[:two]  # Значение по умолчанию - nil
 
-    hash2 = Hash.new("dos")
+    hash2 = Hash.new("dos")        # Указано значение по умолчанию
     hash2[:one] = 1
 
-    assert_equal __, hash2[:one]
-    assert_equal __, hash2[:two]
+    assert_equal 1, hash2[:one]
+    assert_equal "dos", hash2[:two]  # Возвращает указанное значение по умолчанию
   end
 
   def test_default_value_is_the_same_object
