@@ -22,7 +22,7 @@ class AboutObjects < Neo::Koan
 
   def test_every_object_has_an_id
     obj = Object.new
-    assert_equal __, obj.object_id.class
+    assert_equal Integer, obj.object_id.class  # ID объекта - целое число
   end
 
   def test_every_object_has_different_id
