@@ -111,14 +111,14 @@ class AboutHashes < Neo::Koan
   end
 
   def test_default_value_with_block
-    hash = Hash.new {|hash, key| hash[key] = [] }
+    hash = Hash.new {|hash, key| hash[key] = [] }  # Блок создает новый массив для каждого ключа
 
-    hash[:one] << "uno"
-    hash[:two] << "dos"
+    hash[:one] << "uno"  # Добавление в массив для :one
+    hash[:two] << "dos"  # Добавление в массив для :two
 
-    assert_equal __, hash[:one]
-    assert_equal __, hash[:two]
-    assert_equal __, hash[:three]
+    assert_equal ["uno"], hash[:one]  # Уникальный массив для :one
+    assert_equal ["dos"], hash[:two]  # Уникальный массив для :two
+    assert_equal [], hash[:three]     # Новый пустой массив для нового ключа
   end
 
   def test_default_value_attribute
