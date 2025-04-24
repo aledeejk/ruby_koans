@@ -75,12 +75,12 @@ class AboutHashes < Neo::Koan
 
   def test_combining_hashes
     hash = { "jim" => 53, "amy" => 20, "dan" => 23 }
-    new_hash = hash.merge({ "jim" => 54, "jenny" => 26 })
+    new_hash = hash.merge({ "jim" => 54, "jenny" => 26 })  # Объединение хэшей
 
-    assert_equal __, hash != new_hash
+    assert_equal true, hash != new_hash  # Исходный хэш не изменился
 
-    expected = { "jim" => __, "amy" => 20, "dan" => 23, "jenny" => __ }
-    assert_equal __, expected == new_hash
+    expected = { "jim" => 54, "amy" => 20, "dan" => 23, "jenny" => 26 }
+    assert_equal true, expected == new_hash  # Новые значения перезаписали старые
   end
 
   def test_default_value
