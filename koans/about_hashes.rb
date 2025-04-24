@@ -124,10 +124,10 @@ class AboutHashes < Neo::Koan
   def test_default_value_attribute
     hash = Hash.new
 
-    assert_equal __, hash[:some_key]
+    assert_equal nil, hash[:some_key]  # Значение по умолчанию не установлено
 
-    hash.default = 'peanut'
+    hash.default = 'peanut'  # Установка значения по умолчанию
 
-    assert_equal __, hash[:some_key]
+    assert_equal 'peanut', hash[:some_key]  # Теперь возвращает 'peanut'
   end
 end
