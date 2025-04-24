@@ -51,8 +51,8 @@ class AboutMethods < Neo::Koan
   end
 
   def test_calling_with_default_values
-    assert_equal [1, __], method_with_defaults(1)
-    assert_equal [1, __], method_with_defaults(1, 2)
+    assert_equal [1, :default_value], method_with_defaults(1)  # Используется значение по умолчанию
+    assert_equal [1, 2], method_with_defaults(1, 2)  # Переопределяем значение по умолчанию
   end
 
   # ------------------------------------------------------------------
