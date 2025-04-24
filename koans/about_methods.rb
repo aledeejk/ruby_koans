@@ -84,11 +84,11 @@ class AboutMethods < Neo::Koan
 
   def method_without_explicit_return
     :a_non_return_value
-    :return_value
+    :return_value  # Возвращается последнее выражение
   end
 
   def test_method_without_explicit_return
-    assert_equal __, method_without_explicit_return
+    assert_equal :return_value, method_without_explicit_return  # Возвращается последнее выражение
   end
 
   # ------------------------------------------------------------------
