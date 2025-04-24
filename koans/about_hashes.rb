@@ -22,14 +22,18 @@ class AboutHashes < Neo::Koan
 
   def test_accessing_hashes_with_fetch
     hash = { :one => "uno" }
-    assert_equal __, hash.fetch(:one)
-    assert_raise(___) do
+    assert_equal "uno", hash.fetch(:one)    # fetch для существующего ключа
+    assert_raise(KeyError) do               # fetch для несуществующего ключа вызывает исключение
       hash.fetch(:doesnt_exist)
     end
 
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
+    # fetch лучше использовать, когда:
+    # 1. Нужно явно обработать отсутствие ключа
+    # 2. Хотим получить исключение при отсутствии ключа
+    # 3. Можем указать значение по умолчанию как второй аргумент
   end
 
   def test_changing_hashes
