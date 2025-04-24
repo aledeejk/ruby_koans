@@ -15,9 +15,9 @@ class AboutHashes < Neo::Koan
 
   def test_accessing_hashes
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash[:one]
-    assert_equal __, hash[:two]
-    assert_equal __, hash[:doesnt_exist]
+    assert_equal "uno", hash[:one]           # Доступ по существующему ключу
+    assert_equal "dos", hash[:two]
+    assert_equal nil, hash[:doesnt_exist]   # Несуществующий ключ возвращает nil
   end
 
   def test_accessing_hashes_with_fetch
