@@ -110,18 +110,18 @@ class AboutMethods < Neo::Koan
   def my_private_method
     "a secret"
   end
-  private :my_private_method
+  private :my_private_method  # Объявляем метод приватным
 
   def test_calling_private_methods_without_receiver
-    assert_equal __, my_private_method
+    assert_equal "a secret", my_private_method  # Можно вызывать без явного получателя
   end
 
   if before_ruby_version("2.7")   # https://github.com/edgecase/ruby_koans/issues/12
     def test_calling_private_methods_with_an_explicit_receiver
-      exception = assert_raise(___) do
-        self.my_private_method
+      exception = assert_raise(NoMethodError) do
+        self.my_private_method  # Приватные методы нельзя вызывать с явным получателем
       end
-      assert_match /__/, exception.message
+      assert_match /private method/, exception.message
     end
   end
 
