@@ -38,13 +38,16 @@ class AboutHashes < Neo::Koan
 
   def test_changing_hashes
     hash = { :one => "uno", :two => "dos" }
-    hash[:one] = "eins"
+    hash[:one] = "eins"  # Изменение значения по ключу
 
-    expected = { :one => __, :two => "dos" }
-    assert_equal __, hash
-
+    expected = { :one => "eins", :two => "dos" }
+    assert_equal expected, hash  # Проверка всего хэша
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
+    # Переменная expected используется для:
+    # 1. Улучшения читаемости
+    # 2. Возможности повторного использования
+    # 3. Упрощения отладки
   end
 
   def test_hash_is_unordered
