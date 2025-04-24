@@ -14,12 +14,14 @@ class AboutNil < Neo::Koan
       nil.some_method_nil_doesnt_know_about
     rescue Exception => ex
       # What exception has been caught?
-      assert_equal __, ex.class
+      assert_equal NoMethodError, ex.class
 
       # What message was attached to the exception?
       # (HINT: replace __ with part of the error message.)
-      assert_match(/__/, ex.message)
+      # Сообщение содержит информацию о несуществующем методе
+      assert_match(/undefined method `some_method_nil_doesnt_know_about'/, ex.message)
     end
+    # В Ruby вы получите NoMethodError вместо NullPointerException как в других языках
   end
 
   def test_nil_has_a_few_methods_defined_on_it
