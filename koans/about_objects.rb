@@ -32,10 +32,11 @@ class AboutObjects < Neo::Koan
   end
 
   def test_small_integers_have_fixed_ids
-    assert_equal __, 0.object_id
-    assert_equal __, 1.object_id
-    assert_equal __, 2.object_id
-    assert_equal __, 100.object_id
+    # В Ruby object_id для чисел соответствует формуле: число*2 + 1
+    assert_equal 1, 0.object_id     # 0*2 + 1 = 1
+    assert_equal 3, 1.object_id     # 1*2 + 1 = 3
+    assert_equal 5, 2.object_id     # 2*2 + 1 = 5
+    assert_equal 201, 100.object_id # 100*2 + 1 = 201
 
     # THINK ABOUT IT:
     # What pattern do the object IDs for small integers follow?
