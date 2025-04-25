@@ -67,11 +67,11 @@ class AboutBlocks < Neo::Koan
   end
 
   def test_blocks_can_be_assigned_to_variables_and_called_explicitly
-    add_one = lambda { |n| n + 1 }
-    assert_equal __, add_one.call(10)
+    add_one = lambda { |n| n + 1 }  # Блок, сохраненный в переменную
+    assert_equal 11, add_one.call(10)  # Явный вызов
 
-    # Alternative calling syntax
-    assert_equal __, add_one[10]
+    # Альтернативный синтаксис вызова
+    assert_equal 11, add_one[10]
   end
 
   def test_stand_alone_blocks_can_be_passed_to_methods_expecting_blocks
