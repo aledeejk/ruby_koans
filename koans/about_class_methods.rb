@@ -110,12 +110,12 @@ class AboutClassMethods < Neo::Koan
   # ------------------------------------------------------------------
 
   SelfInsideOfClassStatement = class Dog
-                                 self
+                                 self  # self внутри класса - это сам класс
                                end
 
-  def test_self_while_inside_class_is_class_object_not_instance
-    assert_equal __, Dog == SelfInsideOfClassStatement
-  end
+                               def test_self_while_inside_class_is_class_object_not_instance
+                                assert_equal true, Dog == SelfInsideOfClassStatement  # self внутри класса - это класс
+                              end
 
   # ------------------------------------------------------------------
 
