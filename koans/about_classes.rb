@@ -60,7 +60,7 @@ class AboutClasses < Neo::Koan
       @name = a_name
     end
     def name
-      @name
+      @name  # Метод для чтения @name
     end
   end
 
@@ -68,7 +68,7 @@ class AboutClasses < Neo::Koan
     fido = Dog3.new
     fido.set_name("Fido")
 
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name  # Теперь можно читать name
   end
 
   # ------------------------------------------------------------------
