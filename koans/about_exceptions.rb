@@ -50,12 +50,12 @@ class AboutExceptions < Neo::Koan
     begin
       fail "Oops"
     rescue StandardError
-      # no code here
+      # Блок rescue может быть пустым
     ensure
-      result = :always_run
+      result = :always_run  # Ensure выполняется всегда
     end
 
-    assert_equal __, result
+    assert_equal :always_run, result  # Блок ensure сработал
   end
 
   # Sometimes, we must know about the unknown
