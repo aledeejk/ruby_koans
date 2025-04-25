@@ -56,15 +56,17 @@ class AboutSandwichCode < Neo::Koan
   # Consider the following code:
   #
 
+  # Универсальный метод для работы с файлом (шаблон "сэндвич")
   def file_sandwich(file_name)
     file = open(file_name)
-    yield(file)
+    yield(file)  # Передаем файл в блок
   ensure
-    file.close if file
+    file.close if file  # Всегда закрываем файл
   end
 
   # Now we write:
 
+  # Новая реализация подсчета строк с использованием file_sandwich
   def count_lines2(file_name)
     file_sandwich(file_name) do |file|
       count = 0
@@ -76,7 +78,7 @@ class AboutSandwichCode < Neo::Koan
   end
 
   def test_counting_lines2
-    assert_equal __, count_lines2("example_file.txt")
+    assert_equal 4, count_lines2("example_file.txt")  # Результат тот же
   end
 
   # ------------------------------------------------------------------
