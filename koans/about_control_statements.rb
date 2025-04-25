@@ -44,7 +44,7 @@ class AboutControlStatements < Neo::Koan
     value = if false
               :true_value
             end
-    assert_equal __, value
+    assert_equal nil, value  # Если условие false и нет else → возвращается nil
   end
 
   def test_condition_operators
