@@ -94,15 +94,15 @@ class AboutClasses < Neo::Koan
   # ------------------------------------------------------------------
 
   class Dog5
-    attr_accessor :name
+    attr_accessor :name  # Автоматически создает и чтение и запись
   end
 
 
   def test_attr_accessor_will_automatically_define_both_read_and_write_accessors
     fido = Dog5.new
 
-    fido.name = "Fido"
-    assert_equal __, fido.name
+    fido.name = "Fido"  # Метод записи
+    assert_equal "Fido", fido.name  # Метод чтения
   end
 
   # ------------------------------------------------------------------
