@@ -145,15 +145,15 @@ class AboutClasses < Neo::Koan
     end
 
     def get_self
-      self
+      self  # self ссылается на текущий объект
     end
 
     def to_s
-      @name
+      @name  # Строковое представление
     end
 
     def inspect
-      "<Dog named '#{name}'>"
+      "<Dog named '#{name}'>"  # Детальное представление
     end
   end
 
@@ -161,7 +161,7 @@ class AboutClasses < Neo::Koan
     fido = Dog7.new("Fido")
 
     fidos_self = fido.get_self
-    assert_equal __, fidos_self
+    assert_equal fido, fidos_self  # self возвращает сам объект
   end
 
   def test_to_s_provides_a_string_version_of_the_object
