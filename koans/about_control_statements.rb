@@ -8,7 +8,7 @@ class AboutControlStatements < Neo::Koan
     else
       result = :false_value
     end
-    assert_equal __, result
+    assert_equal :true_value, result  # Условие true → выполняется первая ветка
   end
 
   def test_if_then_statements
