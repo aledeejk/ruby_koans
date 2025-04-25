@@ -14,7 +14,7 @@ class AboutClassMethods < Neo::Koan
   end
 
   def test_classes_are_objects_too
-    assert_equal __, Dog.is_a?(Object)
+    assert_equal true, Dog.is_a?(Object)  # Классы тоже объекты (в Ruby всё объекты)
   end
 
   def test_objects_have_methods
