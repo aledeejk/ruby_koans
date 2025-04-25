@@ -19,12 +19,12 @@ class AboutBlocks < Neo::Koan
   # ------------------------------------------------------------------
 
   def method_with_block_arguments
-    yield("Jim")
+    yield("Jim")  # Передаем аргумент в блок
   end
 
   def test_blocks_can_take_arguments
     method_with_block_arguments do |argument|
-      assert_equal __, argument
+      assert_equal "Jim", argument  # Блок получает переданный аргумент
     end
   end
 
