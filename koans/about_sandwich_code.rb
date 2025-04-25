@@ -20,6 +20,7 @@ class AboutSandwichCode < Neo::Koan
 
   # ------------------------------------------------------------------
 
+  # Оригинальная реализация поиска строки
   def find_line(file_name)
     file = open(file_name)
     while line = file.gets
@@ -30,7 +31,7 @@ class AboutSandwichCode < Neo::Koan
   end
 
   def test_finding_lines
-    assert_equal __, find_line("example_file.txt")
+    assert_equal "test\n", find_line("example_file.txt")  # Строка "test" содержит 'e'
   end
 
   # ------------------------------------------------------------------
