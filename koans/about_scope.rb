@@ -35,11 +35,11 @@ class AboutScope < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  class String
+  class String # Создаем свой класс String в текущей области видимости
   end
 
   def test_bare_bones_class_names_assume_the_current_scope
-    assert_equal __, AboutScope::String == String
+    assert_equal true, AboutScope::String == String  # Полное и краткое имя
   end
 
   def test_nested_string_is_not_the_same_as_the_system_string
