@@ -20,7 +20,7 @@ class AboutModules < Neo::Koan
   # ------------------------------------------------------------------
 
   class Dog
-    include Nameable
+    include Nameable # Включаем модуль в класс
 
     attr_reader :name
 
@@ -32,16 +32,16 @@ class AboutModules < Neo::Koan
       "WOOF"
     end
 
-    def here
-      :in_object
+    def here  
+      :in_object   # Переопределяем метод из модуля
     end
   end
 
   def test_normal_methods_are_available_in_the_object
     fido = Dog.new
-    assert_equal __, fido.bark
+    assert_equal "WOOF", fido.bark  # Метод класса работает
   end
-
+  
   def test_module_methods_are_also_available_in_the_object
     fido = Dog.new
     assert_nothing_raised do
