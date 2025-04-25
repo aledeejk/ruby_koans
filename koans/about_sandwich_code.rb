@@ -98,8 +98,9 @@ class AboutSandwichCode < Neo::Koan
 
   # ------------------------------------------------------------------
 
+   # Использование встроенной в Ruby блоковой формы open
   def count_lines3(file_name)
-    open(file_name) do |file|
+    open(file_name) do |file|  # Ruby сам закроет файл после блока
       count = 0
       while file.gets
         count += 1
@@ -109,7 +110,7 @@ class AboutSandwichCode < Neo::Koan
   end
 
   def test_open_handles_the_file_sandwich_when_given_a_block
-    assert_equal __, count_lines3("example_file.txt")
+    assert_equal 4, count_lines3("example_file.txt")  # Результат тот же
   end
 
 end
