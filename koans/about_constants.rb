@@ -1,13 +1,13 @@
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
-C = "top level"
+C = "top level"  # Константа верхнего уровня
 
 class AboutConstants < Neo::Koan
 
-  C = "nested"
+  C = "nested"   # Константа внутри класса
 
   def test_nested_constants_may_also_be_referenced_with_relative_paths
-    assert_equal __, C
+    assert_equal "nested", C  # Поиск начинается с текущей области видимости
   end
 
   def test_top_level_constants_are_referenced_by_double_colons
