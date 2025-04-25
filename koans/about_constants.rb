@@ -24,18 +24,18 @@ class AboutConstants < Neo::Koan
   class Animal
     LEGS = 4
     def legs_in_animal
-      LEGS
+      LEGS # Ищет константу в текущем классе
     end
 
     class NestedAnimal
       def legs_in_nested_animal
-        LEGS
+        LEGS  # Наследует константу из внешнего класса Animal
       end
     end
   end
 
   def test_nested_classes_inherit_constants_from_enclosing_classes
-    assert_equal __, Animal::NestedAnimal.new.legs_in_nested_animal
+    assert_equal 4, Animal::NestedAnimal.new.legs_in_nested_animal
   end
 
   # ------------------------------------------------------------------
