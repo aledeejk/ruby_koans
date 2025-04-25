@@ -110,13 +110,13 @@ class AboutClasses < Neo::Koan
   class Dog6
     attr_reader :name
     def initialize(initial_name)
-      @name = initial_name
+      @name = initial_name # Инициализация при создании
     end
   end
 
   def test_initialize_provides_initial_values_for_instance_variables
     fido = Dog6.new("Fido")
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name  # Имя установлено через initialize
   end
 
   def test_args_to_new_must_match_initialize
