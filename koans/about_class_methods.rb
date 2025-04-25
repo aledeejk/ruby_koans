@@ -41,8 +41,8 @@ class AboutClassMethods < Neo::Koan
       :fidos_wag
     end
 
-    assert_raise(___) do
-      rover.wag
+    assert_raise(NoMethodError) do
+      rover.wag  # У rover нет этого метода
     end
   end
 
