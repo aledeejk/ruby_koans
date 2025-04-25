@@ -38,11 +38,11 @@ class AboutInheritance < Neo::Koan
 
   def test_subclasses_add_new_behavior
     chico = Chihuahua.new("Chico")
-    assert_equal __, chico.wag
+    assert_equal :happy, chico.wag  # Chihuahua добавляет новый метод wag
 
-    assert_raise(___) do
+    assert_raise(NoMethodError) do
       fido = Dog.new("Fido")
-      fido.wag
+      fido.wag  # У Dog нет метода wag
     end
   end
 
