@@ -137,15 +137,17 @@ class AboutRegularExpressions < Neo::Koan
 
   def test_a_vertical_pipe_means_or
     grays = /(James|Dana|Summer) Gray/
-    assert_equal __, "James Gray"[grays]
-    assert_equal __, "Summer Gray"[grays, 1]
-    assert_equal __, "Jim Gray"[grays, 1]
+    assert_equal "James Gray", "James Gray"[grays]           # Первый вариант
+    assert_equal "Summer", "Summer Gray"[grays, 1]           # Третий вариант
+    assert_equal nil, "Jim Gray"[grays, 1]                   # Нет совпадения
   end
 
   # THINK ABOUT IT:
   #
   # Explain the difference between a character class ([...]) and alternation (|).
-
+  # Разница между [...] и |:
+  # [...] - один символ из набора
+  # | - альтернатива между полными выражениями
   # ------------------------------------------------------------------
 
   def test_scan_is_like_find_all
