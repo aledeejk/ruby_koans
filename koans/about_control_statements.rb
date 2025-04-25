@@ -54,9 +54,9 @@ class AboutControlStatements < Neo::Koan
 
   def test_if_statement_modifiers
     result = :default_value
-    result = :true_value if true
+    result = :true_value if true  # Инлайн версия if
 
-    assert_equal __, result
+    assert_equal :true_value, result
   end
 
   def test_unless_statement
