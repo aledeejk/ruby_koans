@@ -128,10 +128,10 @@ class AboutControlStatements < Neo::Koan
   def test_for_statement
     array = ["fish", "and", "chips"]
     result = []
-    for item in array
+    for item in array  # Цикл for для обхода массива
       result << item.upcase
     end
-    assert_equal [__, __, __], result
+    assert_equal ["FISH", "AND", "CHIPS"], result  # Все элементы в верхнем регистре
   end
 
   def test_times_statement
