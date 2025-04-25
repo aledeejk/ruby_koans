@@ -93,20 +93,16 @@ class AboutIteration < Neo::Koan
   end
 
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays
-    # Ranges act like a collection
+    # Работа с диапазонами
     result = (1..3).map { |item| item + 10 }
-    assert_equal __, result
+    assert_equal [11, 12, 13], result
 
-    # Files act like a collection of lines
+    # Работа с файлами
     File.open("example_file.txt") do |file|
       upcase_lines = file.map { |line| line.strip.upcase }
-      assert_equal __, upcase_lines
-    end
-
-    # NOTE: You can create your own collections that work with each,
-    # map, select, etc.
+      assert_equal ["THIS", "IS", "A", "TEST"], upcase_lines
   end
-
+end
   # Bonus Question:  In the previous koan, we saw the construct:
   #
   #   File.open(filename) do |file|
