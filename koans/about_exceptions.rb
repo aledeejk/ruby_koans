@@ -36,14 +36,13 @@ class AboutExceptions < Neo::Koan
   def test_raising_a_particular_error
     result = nil
     begin
-      # 'raise' and 'fail' are synonyms
-      raise MySpecialError, "My Message"
+      raise MySpecialError, "My Message"  # Выбрасываем конкретное исключение
     rescue MySpecialError => ex
       result = :exception_handled
     end
 
-    assert_equal __, result
-    assert_equal __, ex.message
+    assert_equal :exception_handled, result  # Исключение было поймано
+    assert_equal "My Message", ex.message    # Сообщение сохраняется
   end
 
   def test_ensure_clause
