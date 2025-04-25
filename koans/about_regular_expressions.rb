@@ -123,8 +123,8 @@ class AboutRegularExpressions < Neo::Koan
   # ------------------------------------------------------------------
 
   def test_parentheses_also_capture_matched_content_by_number
-    assert_equal __, "Gray, James"[/(\w+), (\w+)/, 1]
-    assert_equal __, "Gray, James"[/(\w+), (\w+)/, 2]
+    assert_equal "Gray", "Gray, James"[/(\w+), (\w+)/, 1]  # Первая группа
+    assert_equal "James", "Gray, James"[/(\w+), (\w+)/, 2] # Вторая группа
   end
 
   def test_variables_can_also_be_used_to_access_captures
