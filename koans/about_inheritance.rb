@@ -58,13 +58,13 @@ class AboutInheritance < Neo::Koan
 
   class BullDog < Dog
     def bark
-      super + ", GROWL"
+      super + ", GROWL"   # super вызывает метод bark родительского класса
     end
   end
 
   def test_subclasses_can_invoke_parent_behavior_via_super
     ralph = BullDog.new("Ralph")
-    assert_equal __, ralph.bark
+    assert_equal "WOOF, GROWL", ralph.bark  # Комбинация родительского и дочернего метода
   end
 
   # ------------------------------------------------------------------
