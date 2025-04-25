@@ -29,13 +29,12 @@ class AboutClasses < Neo::Koan
     fido = Dog2.new
     fido.set_name("Fido")
 
-    assert_raise(___) do
-      fido.name
+    assert_raise(NoMethodError) do
+      fido.name  # Нет метода для чтения name
     end
 
-    assert_raise(___) do
-      eval "fido.@name"
-      # NOTE: Using eval because the above line is a syntax error.
+    assert_raise(SyntaxError) do
+      eval "fido.@name"  # Синтаксическая ошибка - нельзя обращаться напрямую
     end
   end
 
