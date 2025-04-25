@@ -42,12 +42,12 @@ class AboutConstants < Neo::Koan
 
   class Reptile < Animal
     def legs_in_reptile
-      LEGS
+      LEGS  # Наследует константу от родительского класса
     end
   end
 
   def test_subclasses_inherit_constants_from_parent_classes
-    assert_equal __, Reptile.new.legs_in_reptile
+    assert_equal 4, Reptile.new.legs_in_reptile
   end
 
   # ------------------------------------------------------------------
