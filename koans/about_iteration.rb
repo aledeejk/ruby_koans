@@ -82,14 +82,14 @@ class AboutIteration < Neo::Koan
   end
 
   def test_inject_will_blow_your_mind
-    result = [2, 3, 4].inject(0) { |sum, item| sum + item }
-    assert_equal __, result
+    result = [2, 3, 4].inject(0) { |sum, item| sum + item }  # Сумма с начальным значением 0
+    assert_equal 9, result
 
-    result2 = [2, 3, 4].inject(1) { |product, item| product * item }
-    assert_equal __, result2
+    result2 = [2, 3, 4].inject(1) { |product, item| product * item }  # Произведение с начальным значением 1
+    assert_equal 24, result2
 
-    # Extra Credit:
-    # Describe in your own words what inject does.
+    # inject (или reduce) применяет блок к аккумулятору и каждому элементу
+    # Полезен для агрегации данных (суммы, произведения и т.д.)
   end
 
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays
