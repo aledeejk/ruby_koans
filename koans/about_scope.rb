@@ -18,8 +18,8 @@ class AboutScope < Neo::Koan
   end
 
   def test_dog_is_not_available_in_the_current_scope
-    assert_raise(___) do
-      Dog.new
+    assert_raise(NameError) do
+      Dog.new  # Класс Dog не определен в текущей области видимости
     end
   end
 
