@@ -83,14 +83,13 @@ class AboutBlocks < Neo::Koan
   # ------------------------------------------------------------------
 
   def method_with_explicit_block(&block)
-    block.call(10)
+    block.call(10)  # Явный вызов переданного блока
   end
 
   def test_methods_can_take_an_explicit_block_argument
-    assert_equal __, method_with_explicit_block { |n| n * 2 }
+    assert_equal 20, method_with_explicit_block { |n| n * 2 }  # Блок умножает на 2
 
     add_one = lambda { |n| n + 1 }
-    assert_equal __, method_with_explicit_block(&add_one)
+    assert_equal 11, method_with_explicit_block(&add_one)  # Передача лямбды
   end
-
 end
