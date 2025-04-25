@@ -25,17 +25,19 @@ class AboutControlStatements < Neo::Koan
             else
               :false_value
             end
-    assert_equal __, value
+    assert_equal :true_value, value  # Возвращается значение из выполненной ветки
 
     value = if false
               :true_value
             else
               :false_value
             end
-    assert_equal __, value
+    assert_equal :false_value, value  # Условие false → выполняется else
+
 
     # NOTE: Actually, EVERY statement in Ruby will return a value, not
     # just if statements.
+    # В Ruby ВСЕ выражения возвращают значение, не только if
   end
 
   def test_if_statements_with_no_else_with_false_condition_return_value
