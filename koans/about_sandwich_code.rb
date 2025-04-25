@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutSandwichCode < Neo::Koan
 
+  # Оригинальная реализация подсчета строк
   def count_lines(file_name)
     file = open(file_name)
     count = 0
@@ -10,11 +11,11 @@ class AboutSandwichCode < Neo::Koan
     end
     count
   ensure
-    file.close if file
+    file.close if file   # Гарантированное закрытие файла
   end
 
   def test_counting_lines
-    assert_equal __, count_lines("example_file.txt")
+    assert_equal 4, count_lines("example_file.txt")  # Файл содержит 4 строки
   end
 
   # ------------------------------------------------------------------
