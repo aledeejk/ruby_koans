@@ -61,10 +61,10 @@ class AboutControlStatements < Neo::Koan
 
   def test_unless_statement
     result = :default_value
-    unless false    # same as saying 'if !false', which evaluates as 'if true'
+    unless false    # unless false ≡ if !false ≡ if true
       result = :false_value
     end
-    assert_equal __, result
+    assert_equal :false_value, result  # Условие false → блок выполняется
   end
 
   def test_unless_statement_evaluate_true
