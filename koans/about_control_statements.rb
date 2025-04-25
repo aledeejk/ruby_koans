@@ -103,14 +103,15 @@ class AboutControlStatements < Neo::Koan
     end
     assert_equal 3628800, result  # Тот же результат - факториал 10
   end
+
   def test_break_statement_returns_values
     i = 1
     result = while i <= 10
-      break i if i % 2 == 0
+      break i if i % 2 == 0  # Выход с возвратом текущего i
       i += 1
     end
 
-    assert_equal __, result
+    assert_equal 2, result  # Первое четное число - 2
   end
 
   def test_next_statement
