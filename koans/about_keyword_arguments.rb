@@ -37,10 +37,9 @@ class AboutKeywordArguments < Neo::Koan
   end
 
   def test_mandatory_keyword_arguments_without_mandatory_argument
-    exception = assert_raise(___) do
-      method_with_mandatory_keyword_arguments
+    exception = assert_raise(ArgumentError) do
+      method_with_mandatory_keyword_arguments # Не указан обязательный one:
     end
-    assert_match(/__/, exception.message)
+    assert_match(/missing keyword/, exception.message) # Ожидаем сообщение об отсутствующем аргументе
   end
-
 end
