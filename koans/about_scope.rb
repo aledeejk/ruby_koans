@@ -52,10 +52,10 @@ class AboutScope < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  PI = 3.1416
+  PI = 3.1416 # Константа в текущей области видимости
 
   def test_constants_are_defined_with_an_initial_uppercase_letter
-    assert_equal __, PI
+    assert_equal 3.1416, PI  # Доступ к константе
   end
 
   # ------------------------------------------------------------------
