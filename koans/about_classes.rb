@@ -13,16 +13,16 @@ class AboutClasses < Neo::Koan
 
   class Dog2
     def set_name(a_name)
-      @name = a_name
+      @name = a_name  # Устанавливаем переменную экземпляра
     end
   end
 
   def test_instance_variables_can_be_set_by_assigning_to_them
     fido = Dog2.new
-    assert_equal __, fido.instance_variables
+    assert_equal [], fido.instance_variables  # Пока нет переменных экземпляра
 
     fido.set_name("Fido")
-    assert_equal __, fido.instance_variables
+    assert_equal [:@name], fido.instance_variables  # Теперь есть @name
   end
 
   def test_instance_variables_cannot_be_accessed_outside_the_class
