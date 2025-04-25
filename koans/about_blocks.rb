@@ -2,13 +2,13 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutBlocks < Neo::Koan
   def method_with_block
-    result = yield
+    result = yield  # Выполняем переданный блок
     result
   end
 
   def test_methods_can_take_blocks
     yielded_result = method_with_block { 1 + 2 }
-    assert_equal __, yielded_result
+    assert_equal 3, yielded_result  # Блок возвращает сумму 1 + 2
   end
 
   def test_blocks_can_be_defined_with_do_end_too
