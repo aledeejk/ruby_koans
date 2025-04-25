@@ -26,13 +26,14 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_asterisk_means_zero_or_more
-    assert_equal __, "abbcccddddeeeee"[/ab*/]
-    assert_equal __, "abbcccddddeeeee"[/az*/]
-    assert_equal __, "abbcccddddeeeee"[/z*/]
+    assert_equal "abb", "abbcccddddeeeee"[/ab*/]  # "b" - 0 или более раз
+    assert_equal "a", "abbcccddddeeeee"[/az*/]    # "z" нет, но "a" есть
+    assert_equal "", "abbcccddddeeeee"[/z*/]      # Пустое совпадение (0 раз)
 
     # THINK ABOUT IT:
     #
     # When would * fail to match?
+    # * не совпадет только если нужно конкретное совпадение, а не пустая строка
   end
 
   # THINK ABOUT IT:
@@ -40,6 +41,7 @@ class AboutRegularExpressions < Neo::Koan
   # We say that the repetition operators above are "greedy."
   #
   # Why?
+  # Жадность означает, что операторы стараются захватить как можно больше символов
 
   # ------------------------------------------------------------------
 
