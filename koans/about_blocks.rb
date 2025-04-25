@@ -31,7 +31,7 @@ class AboutBlocks < Neo::Koan
   # ------------------------------------------------------------------
 
   def many_yields
-    yield(:peanut)
+    yield(:peanut)   # Многократный вызов yield
     yield(:butter)
     yield(:and)
     yield(:jelly)
@@ -39,8 +39,8 @@ class AboutBlocks < Neo::Koan
 
   def test_methods_can_call_yield_many_times
     result = []
-    many_yields { |item| result << item }
-    assert_equal __, result
+    many_yields { |item| result << item }  # Собираем все переданные значения
+    assert_equal [:peanut, :butter, :and, :jelly], result
   end
 
   # ------------------------------------------------------------------
