@@ -76,7 +76,7 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_period_is_a_shortcut_for_any_non_newline_character
-    assert_equal __, "abc\n123"[/a.+/]
+    assert_equal "abc", "abc\n123"[/a.+/]  # Любой символ кроме новой строки
   end
 
   def test_a_character_class_can_be_negated
