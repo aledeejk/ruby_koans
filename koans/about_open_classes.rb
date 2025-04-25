@@ -14,7 +14,7 @@ class AboutOpenClasses < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  # Open the existing Dog class and add a new method.
+  # Открываем существующий класс Dog и добавляем новый метод
   class Dog
     def wag
       "HAPPY"
@@ -23,10 +23,10 @@ class AboutOpenClasses < Neo::Koan
 
   def test_after_reopening_dogs_can_both_wag_and_bark
     fido = Dog.new
-    assert_equal __, fido.wag
-    assert_equal __, fido.bark
+    assert_equal "HAPPY", fido.wag  # Новый метод
+    assert_equal "WOOF", fido.bark  # Старый метод сохранился
   end
-
+  
   # ------------------------------------------------------------------
 
   class ::Integer
