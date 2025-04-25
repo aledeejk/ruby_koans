@@ -17,20 +17,20 @@ class AboutExceptions < Neo::Koan
   def test_rescue_clause
     result = nil
     begin
-      fail "Oops"
+      fail "Oops"  # Синтаксический сахар для raise
     rescue StandardError => ex
       result = :exception_handled
     end
 
-    assert_equal __, result
+    assert_equal :exception_handled, result  # Исключение было обработано
 
-    assert_equal __, ex.is_a?(StandardError), "Should be a Standard Error"
-    assert_equal __, ex.is_a?(RuntimeError),  "Should be a Runtime Error"
+    assert_equal true, ex.is_a?(StandardError), "Should be a Standard Error"
+    assert_equal true, ex.is_a?(RuntimeError),  "Should be a Runtime Error"
 
     assert RuntimeError.ancestors.include?(StandardError),
       "RuntimeError is a subclass of StandardError"
 
-    assert_equal __, ex.message
+    assert_equal "Oops", ex.message  # Сообщение из исключения
   end
 
   def test_raising_a_particular_error
