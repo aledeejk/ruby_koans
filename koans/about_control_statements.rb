@@ -136,10 +136,9 @@ class AboutControlStatements < Neo::Koan
 
   def test_times_statement
     sum = 0
-    10.times do
+    10.times do  # Выполнить блок 10 раз
       sum += 1
     end
-    assert_equal __, sum
+    assert_equal 10, sum  # 0 + 1*10 = 10
   end
-
 end
