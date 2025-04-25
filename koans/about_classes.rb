@@ -74,7 +74,8 @@ class AboutClasses < Neo::Koan
   # ------------------------------------------------------------------
 
   class Dog4
-    attr_reader :name
+    attr_reader :name  # Автоматически создает метод чтения
+
 
     def set_name(a_name)
       @name = a_name
@@ -86,8 +87,9 @@ class AboutClasses < Neo::Koan
     fido = Dog4.new
     fido.set_name("Fido")
 
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name  # attr_reader создал метод name
   end
+
 
   # ------------------------------------------------------------------
 
