@@ -97,13 +97,12 @@ class AboutControlStatements < Neo::Koan
     i = 1
     result = 1
     while true
-      break unless i <= 10
+      break unless i <= 10  # Выход из цикла когда i > 10
       result = result * i
       i += 1
     end
-    assert_equal __, result
+    assert_equal 3628800, result  # Тот же результат - факториал 10
   end
-
   def test_break_statement_returns_values
     i = 1
     result = while i <= 10
