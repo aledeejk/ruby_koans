@@ -60,11 +60,11 @@ class AboutScope < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  MyString = ::String
+  MyString = ::String  # Псевдоним для глобального String
 
   def test_class_names_are_just_constants
-    assert_equal __, MyString == ::String
-    assert_equal __, MyString == "HI".class
+    assert_equal true, MyString == ::String      # Сравнение с глобальным
+    assert_equal true, MyString == "HI".class    # Сравнение с классом строки
   end
 
   def test_constants_can_be_looked_up_explicitly
