@@ -98,8 +98,8 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_slash_z_anchors_to_the_end_of_the_string
-    assert_equal __, "start end"[/end\z/]
-    assert_equal __, "start end"[/start\z/]
+    assert_equal "end", "start end"[/end\z/]      # Конец строки
+    assert_equal nil, "start end"[/start\z/]      # Не совпадет
   end
 
   def test_caret_anchors_to_the_start_of_lines
