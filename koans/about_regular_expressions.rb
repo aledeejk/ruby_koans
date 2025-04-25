@@ -117,7 +117,7 @@ class AboutRegularExpressions < Neo::Koan
   # ------------------------------------------------------------------
 
   def test_parentheses_group_contents
-    assert_equal __, "ahahaha"[/(ha)+/]
+    assert_equal "hahaha", "ahahaha"[/(ha)+/]  # Группировка (ha) повторяется
   end
 
   # ------------------------------------------------------------------
