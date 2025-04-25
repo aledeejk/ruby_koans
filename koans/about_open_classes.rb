@@ -26,9 +26,10 @@ class AboutOpenClasses < Neo::Koan
     assert_equal "HAPPY", fido.wag  # Новый метод
     assert_equal "WOOF", fido.bark  # Старый метод сохранился
   end
-  
+
   # ------------------------------------------------------------------
 
+  # Открываем встроенный класс Integer
   class ::Integer
     def answer_to_life_universe_and_everything?
       self == 42
@@ -36,10 +37,14 @@ class AboutOpenClasses < Neo::Koan
   end
 
   def test_even_existing_built_in_classes_can_be_reopened
-    assert_equal __, 1.answer_to_life_universe_and_everything?
-    assert_equal __, 42.answer_to_life_universe_and_everything?
+    assert_equal false, 1.answer_to_life_universe_and_everything?  # 1 ≠ 42
+    assert_equal true, 42.answer_to_life_universe_and_everything?   # 42 = 42
   end
 
   # NOTE: To understand why we need the :: before Integer, you need to
   # become enlightened about scope.
+  # Примечание:
+  # :: перед Integer указывает на глобальную область видимости
+  # Это нужно, чтобы найти класс Integer в корневом пространстве имен,
+  # а не внутри текущего класса AboutOpenClasses
 end
