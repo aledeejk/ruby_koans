@@ -48,10 +48,10 @@ class AboutIteration < Neo::Koan
     array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     sum = 0
     array.each do |item|
-      break if item > 3
+      break if item > 3  # Прерывание итерации
       sum += item
     end
-    assert_equal __, sum
+    assert_equal 6, sum  # Сумма элементов до break (1+2+3)
   end
 
   def test_collect_transforms_elements_of_an_array
