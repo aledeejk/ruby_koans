@@ -86,11 +86,11 @@ class AboutControlStatements < Neo::Koan
   def test_while_statement
     i = 1
     result = 1
-    while i <= 10
+    while i <= 10  # Вычисляем факториал 10
       result = result * i
       i += 1
     end
-    assert_equal __, result
+    assert_equal 3628800, result  # 10! = 3628800
   end
 
   def test_break_statement
