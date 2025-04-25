@@ -119,10 +119,10 @@ class AboutControlStatements < Neo::Koan
     result = []
     while i < 10
       i += 1
-      next if (i % 2) == 0
+      next if (i % 2) == 0  # Пропускаем четные числа
       result << i
     end
-    assert_equal __, result
+    assert_equal [1, 3, 5, 7, 9], result  # Только нечетные числа
   end
 
   def test_for_statement
