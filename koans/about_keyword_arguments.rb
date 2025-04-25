@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutKeywordArguments < Neo::Koan
 
+  # Метод с именованными аргументами и значениями по умолчанию
   def method_with_keyword_arguments(one: 1, two: 'two')
     [one, two]
   end
@@ -13,15 +14,16 @@ class AboutKeywordArguments < Neo::Koan
     assert_equal [1, 2], method_with_keyword_arguments(two: 2) # Переопределяем two
   end
 
+  # Метод с обязательным позиционным и именованными аргументами
   def method_with_keyword_arguments_with_mandatory_argument(one, two: 2, three: 3)
     [one, two, three]
   end
 
   def test_keyword_arguments_with_wrong_number_of_arguments
-    exception = assert_raise (___) do
-      method_with_keyword_arguments_with_mandatory_argument
+    exception = assert_raise (ArgumentError) do
+      method_with_keyword_arguments_with_mandatory_argument # Не указан обязательный аргумент one
     end
-    assert_match(/__/, exception.message)
+    assert_match(/wrong number of arguments/, exception.message) # Ожидаем ошибку о неверном числе аргументов
   end
 
   def method_with_mandatory_keyword_arguments(one:, two: 'two')
