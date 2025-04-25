@@ -120,11 +120,12 @@ class AboutClasses < Neo::Koan
   end
 
   def test_args_to_new_must_match_initialize
-    assert_raise(___) do
-      Dog6.new
+    assert_raise(ArgumentError) do
+      Dog6.new  # Требуется аргумент
     end
     # THINK ABOUT IT:
     # Why is this so?
+    # Потому что new вызывает initialize с теми же аргументами
   end
 
   def test_different_objects_have_different_instance_variables
