@@ -78,9 +78,9 @@ class AboutControlStatements < Neo::Koan
 
   def test_unless_statement_modifier
     result = :default_value
-    result = :false_value unless false
+    result = :false_value unless false  # Инлайн версия unless
 
-    assert_equal __, result
+    assert_equal :false_value, result
   end
 
   def test_while_statement
