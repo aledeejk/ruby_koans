@@ -26,13 +26,14 @@ class AboutKeywordArguments < Neo::Koan
     assert_match(/wrong number of arguments/, exception.message) # Ожидаем ошибку о неверном числе аргументов
   end
 
+  # Метод с обязательным именованным аргументом (без значения по умолчанию)
   def method_with_mandatory_keyword_arguments(one:, two: 'two')
     [one, two]
   end
 
   def test_mandatory_keyword_arguments
-    assert_equal __, method_with_mandatory_keyword_arguments(one: 'one')
-    assert_equal __, method_with_mandatory_keyword_arguments(two: 2, one: 1)
+    assert_equal ["one", "two"], method_with_mandatory_keyword_arguments(one: 'one') # two берется по умолчанию
+    assert_equal [1, 2], method_with_mandatory_keyword_arguments(two: 2, one: 1) # Порядок не важен
   end
 
   def test_mandatory_keyword_arguments_without_mandatory_argument
