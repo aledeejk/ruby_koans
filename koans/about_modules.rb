@@ -12,8 +12,8 @@ class AboutModules < Neo::Koan
   end
 
   def test_cant_instantiate_modules
-    assert_raise(___) do
-      Nameable.new
+    assert_raise(NoMethodError) do
+      Nameable.new  # Нельзя создавать экземпляры модулей
     end
   end
 
