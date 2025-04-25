@@ -31,10 +31,10 @@ class AboutIteration < Neo::Koan
   def test_iterating_with_each
     array = [1, 2, 3]
     sum = 0
-    array.each do |item|
+    array.each do |item|  # Итерация с each
       sum += item
     end
-    assert_equal __, sum
+    assert_equal 6, sum  # Сумма элементов
   end
 
   def test_each_can_use_curly_brace_blocks_too
