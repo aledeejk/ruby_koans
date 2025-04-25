@@ -28,10 +28,10 @@ class AboutClassMethods < Neo::Koan
 
   def test_you_can_define_methods_on_individual_objects
     fido = Dog.new
-    def fido.wag
+    def fido.wag  # Определяем метод только для объекта fido
       :fidos_wag
     end
-    assert_equal __, fido.wag
+    assert_equal :fidos_wag, fido.wag  # Метод доступен только fido
   end
 
   def test_other_objects_are_not_affected_by_these_singleton_methods
