@@ -49,17 +49,17 @@ class AboutClassMethods < Neo::Koan
   # ------------------------------------------------------------------
 
   class Dog2
-    def wag
+    def wag  # Обычный метод экземпляра
       :instance_level_wag
     end
   end
 
-  def Dog2.wag
+  def Dog2.wag  # Метод класса (классовый метод)
     :class_level_wag
   end
 
   def test_since_classes_are_objects_you_can_define_singleton_methods_on_them_too
-    assert_equal __, Dog2.wag
+    assert_equal :class_level_wag, Dog2.wag  # Вызов классового метода
   end
 
   def test_class_methods_are_independent_of_instance_methods
