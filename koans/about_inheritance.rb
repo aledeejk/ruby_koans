@@ -71,14 +71,14 @@ class AboutInheritance < Neo::Koan
 
   class GreatDane < Dog
     def growl
-      super.bark + ", GROWL"
+      super.bark + ", GROWL"  # Неправильное использование super
     end
   end
 
   def test_super_does_not_work_cross_method
     george = GreatDane.new("George")
-    assert_raise(___) do
-      george.growl
+    assert_raise(NoMethodError) do
+      george.growl  # super в growl пытается вызвать несуществующий метод
     end
   end
 
