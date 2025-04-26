@@ -85,7 +85,9 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_variable_pattern_with_pin
-    assert_equal __, variable_pattern_with_pin(1)
+    assert_equal :no_match, variable_pattern_with_pin(1)
+    # ^ означает, что нужно использовать значение переменной, а не связывать
+    # Здесь 0 не равно 1, поэтому совпадения нет
   end
 
   # ------------------------------------------------------------------
