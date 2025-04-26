@@ -178,8 +178,10 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_array_pattern
-    assert_equal __, array_pattern(Deconstructible.new('abcd'))
-    assert_equal __, array_pattern(Deconstructible.new('123'))
+    assert_equal ['b', 'c'], array_pattern(Deconstructible.new('abcd'))
+    assert_equal :no_match, array_pattern(Deconstructible.new('123'))
+    # Шаблон ищет массивы, начинающиеся на 'a' и заканчивающиеся на 'd'
+    # *res захватывает все элементы между ними
   end
 
   # ------------------------------------------------------------------
