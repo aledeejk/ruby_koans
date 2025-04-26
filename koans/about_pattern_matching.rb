@@ -67,7 +67,8 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_variable_pattern_with_binding
-    assert_equal __, variable_pattern_with_binding(1)
+    assert_equal 0, variable_pattern_with_binding(1)
+    # Переменная связывается со значением 0, даже если изначально была равна 1
   end
 
   # ------------------------------------------------------------------
