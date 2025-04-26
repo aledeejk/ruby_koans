@@ -79,10 +79,10 @@ class AboutMessagePassing < Neo::Koan
   def test_sending_undefined_messages_to_a_typical_object_results_in_errors
     typical = TypicalObject.new
 
-    exception = assert_raise(___) do
-      typical.foobar
+    exception = assert_raise(NoMethodError) do
+      typical.foobar # Пытаемся вызвать несуществующий метод
     end
-    assert_match(/foobar/, exception.message)
+    assert_match(/foobar/, exception.message) # Проверяем сообщение об ошибке
   end
 
   def test_calling_method_missing_causes_the_no_method_error
