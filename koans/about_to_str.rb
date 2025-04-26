@@ -26,17 +26,18 @@ class AboutToStr < Neo::Koan
 
   class CanBeTreatedAsString
     def to_s
-      "string-like"
+      "string-like"  # Обычное строковое представление
     end
 
     def to_str
-      to_s
+      to_s  # Метод для неявного преобразования в строку
     end
   end
 
   def test_to_str_also_returns_a_string_representation
     like_a_string = CanBeTreatedAsString.new
-    assert_equal __, like_a_string.to_str
+    assert_equal "string-like", like_a_string.to_str
+    # to_str возвращает то же, что и to_s - "string-like"
   end
 
   def test_to_str_allows_objects_to_be_treated_as_strings
