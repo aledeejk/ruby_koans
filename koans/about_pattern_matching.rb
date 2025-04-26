@@ -104,8 +104,10 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_pattern_with_dropping
-    assert_equal __, pattern_with_dropping(['I will not be checked', 2])
-    assert_equal __, pattern_with_dropping(['I will not be checked', 'But I will!'])
+    assert_equal :match, pattern_with_dropping(['I will not be checked', 2])
+    assert_equal :no_match, pattern_with_dropping(['I will not be checked', 'But I will!'])
+    # _ означает, что мы игнорируем первое значение массива
+    # Проверяем только второе значение на равенство 2
   end
 
   # ------------------------------------------------------------------
