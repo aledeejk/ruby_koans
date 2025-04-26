@@ -171,12 +171,13 @@ class AboutMessagePassing < Neo::Koan
   # ------------------------------------------------------------------
 
   # (note: just reopening class from above)
+  # Расширяем класс, чтобы respond_to? правильно работал для foo-методов
   class WellBehavedFooCatcher
     def respond_to?(method_name)
       if method_name.to_s[0,3] == "foo"
-        true
+        true  # Говорим, что foo-методы существуют
       else
-        super(method_name)
+        super(method_name)  # Для остальных - стандартное поведение
       end
     end
   end
@@ -184,8 +185,8 @@ class AboutMessagePassing < Neo::Koan
   def test_explicitly_implementing_respond_to_lets_objects_tell_the_truth
     catcher = WellBehavedFooCatcher.new
 
-    assert_equal __, catcher.respond_to?(:foo_bar)
-    assert_equal __, catcher.respond_to?(:something_else)
+    assert_equal true, catcher.respond_to?(:foo_bar) # foo-метод "существует"
+    assert_equal false, catcher.respond_to?(:something_else) # Другие - нет
   end
 
 end
