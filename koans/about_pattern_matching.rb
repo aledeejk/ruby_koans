@@ -5,12 +5,13 @@ class AboutPatternMatching < Neo::Koan
   def test_pattern_may_not_match
     begin
       case [true, false]
-      in [a, b] if a == b # The condition after pattern is called guard.
+      in [a, b] if a == b # Условие после шаблона называется guard (охранник)
         :match
       end
     rescue Exception => ex
-      # What exception has been caught?
-      assert_equal __, ex.class
+      # Какое исключение было перехвачено?
+      assert_equal NoMatchingPatternError, ex.class
+      # Когда ни один шаблон не совпадает, выбрасывается NoMatchingPatternError
     end
   end
 
