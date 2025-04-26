@@ -148,7 +148,9 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_as_pattern
-    assert_equal __, as_pattern
+    assert_equal 'I was petrified', as_pattern
+    # => связывает результат сопоставления с переменной
+    # При этом перезаписывает исходное значение переменной a
   end
 
   # ------------------------------------------------------------------
