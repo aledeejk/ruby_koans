@@ -135,9 +135,9 @@ class AboutMessagePassing < Neo::Koan
     catcher = AllMessageCatcher.new
 
     assert_nothing_raised do
-      catcher.any_method
+      catcher.any_method # Метод "существует" благодаря method_missing
     end
-    assert_equal __, catcher.respond_to?(:any_method)
+    assert_equal false, catcher.respond_to?(:any_method) # Но respond_to? говорит false
   end
 
   # ------------------------------------------------------------------
