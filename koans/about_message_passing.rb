@@ -142,12 +142,13 @@ class AboutMessagePassing < Neo::Koan
 
   # ------------------------------------------------------------------
 
+  # Класс, который перехватывает только методы, начинающиеся на foo
   class WellBehavedFooCatcher
     def method_missing(method_name, *args, &block)
       if method_name.to_s[0,3] == "foo"
         "Foo to you too"
       else
-        super(method_name, *args, &block)
+        super(method_name, *args, &block)  # Передаем дальше для стандартной обработки
       end
     end
   end
@@ -155,8 +156,8 @@ class AboutMessagePassing < Neo::Koan
   def test_foo_method_are_caught
     catcher = WellBehavedFooCatcher.new
 
-    assert_equal __, catcher.foo_bar
-    assert_equal __, catcher.foo_baz
+    assert_equal "Foo to you too", catcher.foo_bar
+    assert_equal "Foo to you too", catcher.foo_baz
   end
 
   def test_non_foo_messages_are_treated_normally
