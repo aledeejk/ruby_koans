@@ -210,8 +210,10 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_hash_pattern
-    assert_equal __, hash_pattern(LetterAccountant.new('aaabbc'))
-    assert_equal __, hash_pattern(LetterAccountant.new('xyz'))
+    assert_equal [3, 2], hash_pattern(LetterAccountant.new('aaabbc'))
+    assert_equal [0, 0], hash_pattern(LetterAccountant.new('xyz'))
+    # Сопоставляем хэш с ключами :a и :b
+    # LetterAccountant считает количество букв в строке
   end
 
   # we can write it even shorter
