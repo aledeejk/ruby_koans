@@ -51,10 +51,16 @@ class AboutToStr < Neo::Koan
   def acts_like_a_string?(string)
     string = string.to_str if string.respond_to?(:to_str)
     string.is_a?(String)
+    # Метод проверяет, можно ли объект считать строкой:
+    # 1. Если есть to_str, используем его для преобразования
+    # 2. Проверяем, является ли результат строкой
   end
 
   def test_user_defined_code_can_check_for_to_str
-    assert_equal __, acts_like_a_string?(CanNotBeTreatedAsString.new)
-    assert_equal __,  acts_like_a_string?(CanBeTreatedAsString.new)
+    assert_equal false, acts_like_a_string?(CanNotBeTreatedAsString.new)
+    # CanNotBeTreatedAsString не имеет to_str, поэтому не считается строкой
+    
+    assert_equal true, acts_like_a_string?(CanBeTreatedAsString.new)
+    # CanBeTreatedAsString имеет to_str, поэтому считается строкой
   end
 end
