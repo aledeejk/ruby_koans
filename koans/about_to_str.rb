@@ -41,7 +41,9 @@ class AboutToStr < Neo::Koan
   end
 
   def test_to_str_allows_objects_to_be_treated_as_strings
-    assert_equal __, File.exist?(CanBeTreatedAsString.new)
+    assert_equal false, File.exist?(CanBeTreatedAsString.new)
+    # Благодаря to_str наш объект может быть использован там, где ожидается строка
+    # File.exist? возвращает false, так как файла с таким именем не существует
   end
 
   # ------------------------------------------------------------------
