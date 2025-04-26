@@ -10,22 +10,20 @@ class AboutMessagePassing < Neo::Koan
 
   def test_methods_can_be_called_directly
     mc = MessageCatcher.new
-
-    assert mc.caught?
+    assert mc.caught?  # Обычный вызов метода
   end
 
   def test_methods_can_be_invoked_by_sending_the_message
     mc = MessageCatcher.new
-
-    assert mc.send(:caught?)
+    assert mc.send(:caught?)  # Вызов метода через send с символом
   end
 
   def test_methods_can_be_invoked_more_dynamically
     mc = MessageCatcher.new
 
     assert mc.send("caught?")
-    assert mc.send("caught" + __ )    # What do you need to add to the first string?
-    assert mc.send("CAUGHT?".____ )      # What would you need to do to the string?
+    assert mc.send("caught" + "?")    # Конкатенация строк для формирования имени метода
+    assert mc.send("CAUGHT?".downcase) # Приведение строки к нижнему регистру
   end
 
   def test_send_with_underscores_will_also_send_messages
