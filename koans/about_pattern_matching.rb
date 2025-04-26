@@ -23,7 +23,8 @@ class AboutPatternMatching < Neo::Koan
      :no_match
     end
 
-    assert_equal __, result
+    assert_equal :no_match, result
+    # Блок else выполняется, если ни один шаблон не совпал
   end
 
   # ------------------------------------------------------------------
