@@ -15,8 +15,10 @@ class AboutToStr < Neo::Koan
   end
 
   def test_normally_objects_cannot_be_used_where_strings_are_expected
-    assert_raise(___) do
+    assert_raise(TypeError) do
       File.exist?(CanNotBeTreatedAsString.new)
+      # File.exist? ожидает строку, а наш объект не может быть автоматически преобразован в строку
+      # поэтому возникает TypeError
     end
   end
 
