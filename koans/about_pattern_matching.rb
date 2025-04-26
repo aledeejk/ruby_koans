@@ -43,10 +43,15 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_value_pattern
-    assert_equal __, value_pattern(0)
-    assert_equal __, value_pattern(5)
-    assert_equal __, value_pattern(100)
-    assert_equal __, value_pattern('Not a Number!')
+    assert_equal :match_exact_value, value_pattern(0)
+    assert_equal :match_in_range, value_pattern(5)
+    assert_equal :match_with_class, value_pattern(100)
+    assert_equal :no_match, value_pattern('Not a Number!')
+    # Проверяем разные типы сопоставления:
+    # - точное значение
+    # - диапазон
+    # - класс
+    # - отсутствие совпадения
   end
 
   # ------------------------------------------------------------------
