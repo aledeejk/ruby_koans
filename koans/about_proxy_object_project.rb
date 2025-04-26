@@ -15,10 +15,44 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class Proxy
   def initialize(target_object)
     @object = target_object
-    # ADD MORE CODE HERE
+    @messages = []  # Для хранения списка отправленных методов
+    @method_counts = Hash.new(0)  # Для подсчета вызовов методов
   end
 
-  # WRITE CODE HERE
+  # Перехватываем все вызовы методов
+  def method_missing(method_name, *args, &block)
+    if @object.respond_to?(method_name)
+      # Записываем вызванный метод
+      @messages << method_name
+      # Увеличиваем счетчик вызовов
+      @method_counts[method_name] += 1
+      # Пересылаем вызов целевому объекту
+      @object.send(method_name, *args, &block)
+    else
+      # Если метод не существует, вызываем стандартное поведение
+      super
+    end
+  end
+
+  # Возвращает список вызванных методов
+  def messages
+    @messages.dup  # Возвращаем копию, чтобы нельзя было изменить извне
+  end
+
+  # Проверяет, вызывался ли указанный метод
+  def called?(method_name)
+    @messages.include?(method_name)
+  end
+
+  # Возвращает количество вызовов указанного метода
+  def number_of_times_called(method_name)
+    @method_counts[method_name] || 0
+  end
+
+  # Важно переопределить respond_to?, чтобы он учитывал методы целевого объекта
+  def respond_to?(method_name, include_private = false)
+    @object.respond_to?(method_name, include_private) || super
+  end
 end
 
 # The proxy object should pass the following Koan:
