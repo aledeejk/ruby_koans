@@ -124,10 +124,11 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_alternative_pattern
-    assert_equal __, alternative_pattern(0)
-    assert_equal __, alternative_pattern(false)
-    assert_equal __, alternative_pattern(nil)
-    assert_equal __, alternative_pattern(4)
+    assert_equal :match, alternative_pattern(0)
+    assert_equal :match, alternative_pattern(false)
+    assert_equal :match, alternative_pattern(nil)
+    assert_equal :no_match, alternative_pattern(4)
+    # | позволяет указать несколько альтернативных вариантов
   end
 
   # ------------------------------------------------------------------
