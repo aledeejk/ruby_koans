@@ -227,8 +227,9 @@ class AboutPatternMatching < Neo::Koan
   end
 
   def test_hash_pattern_with_sugar
-    assert_equal __, hash_pattern_with_sugar(LetterAccountant.new('aaabbc'))
-    assert_equal __, hash_pattern_with_sugar(LetterAccountant.new('xyz'))
+    assert_equal [3, 2], hash_pattern_with_sugar(LetterAccountant.new('aaabbc'))
+    assert_equal [0, 0], hash_pattern_with_sugar(LetterAccountant.new('xyz'))
+    # Сокращенный синтаксис для хэш-шаблонов
   end
 
 end
