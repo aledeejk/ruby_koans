@@ -116,6 +116,7 @@ class AboutMessagePassing < Neo::Koan
 
   # ------------------------------------------------------------------
 
+  # Класс, который перехватывает любые сообщения
   class AllMessageCatcher
     def method_missing(method_name, *args, &block)
       "Someone called #{method_name} with <#{args.join(", ")}>"
@@ -125,9 +126,9 @@ class AboutMessagePassing < Neo::Koan
   def test_all_messages_are_caught
     catcher = AllMessageCatcher.new
 
-    assert_equal __, catcher.foobar
-    assert_equal __, catcher.foobaz(1)
-    assert_equal __, catcher.sum(1,2,3,4,5,6)
+    assert_equal "Someone called foobar with <>", catcher.foobar
+    assert_equal "Someone called foobaz with <1>", catcher.foobaz(1)
+    assert_equal "Someone called sum with <1, 2, 3, 4, 5, 6>", catcher.sum(1,2,3,4,5,6)
   end
 
   def test_catching_messages_makes_respond_to_lie
