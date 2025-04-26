@@ -88,8 +88,8 @@ class AboutMessagePassing < Neo::Koan
   def test_calling_method_missing_causes_the_no_method_error
     typical = TypicalObject.new
 
-    exception = assert_raise(___) do
-      typical.method_missing(:foobar)
+    exception = assert_raise(NoMethodError) do
+      typical.method_missing(:foobar) # Прямой вызов method_missing
     end
     assert_match(/foobar/, exception.message)
 
@@ -97,6 +97,9 @@ class AboutMessagePassing < Neo::Koan
     #
     # If the method :method_missing causes the NoMethodError, then
     # what would happen if we redefine method_missing?
+    # Заметка:
+    # Если переопределить method_missing, можно изменить поведение при вызове
+    # несуществующих методов. В Ruby 1.8 method_missing был public, а в 1.9+ стал private.
     #
     # NOTE:
     #
